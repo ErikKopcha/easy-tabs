@@ -66,11 +66,12 @@ body {
   font-style: normal;
   font-size: 16px;
   line-height: 19px;
-  color: var(--c-black-1);
-  background-color: var(--c-gray-20);
+  color: var(--c-white-gray);
+  background-color: var(--c-black);
 }
 
 a {
+  text-transform: uppercase;
   text-decoration: none;
   color: inherit;
 }
@@ -81,4 +82,97 @@ a {
 
 input::placeholder {
   color: #b3b3b3;
+}
+
+.tabs {
+  margin: 0 auto;
+  padding: 50px 0 0 0;
+  max-width: 1000px;
+
+  .tabs__wrapper {
+    margin: 0 0 50px 0;
+
+    .tabs__items {
+      display: flex;
+
+      .tabs__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1 33.333%;
+        height: 50px;
+
+        span {
+          position: relative;
+          z-index: 2;
+
+          @media (max-width: 600px) {
+            display: block;
+            width: 100px;
+            padding: 0 5px 0 0;
+            white-space: nowrap;
+            text-align: center;
+            overflow: hidden;
+            font-size: 14px;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    .tabs__body {
+      .tabs__block {
+        position: relative;
+        display: none;
+        padding: 20px;
+        font-size: 18px;
+        line-height: 24px;
+        color: var(--c-black);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -50px;
+          height: 50px;
+          width: 33.333%;
+        }
+
+        &:nth-of-type(1) {
+          background-color: #8eeeff;
+
+          &::before {
+            left: 0;
+            background-color: #8eeeff;
+          }
+        }
+
+        &:nth-of-type(2) {
+          background-color: #e9ba3a;
+
+          &::before {
+            left: 33.333%;
+            background-color: #e9ba3a;
+          }
+        }
+
+        &:nth-of-type(3) {
+          background-color: #762cff;
+
+          &::before {
+            right: 0;
+            background-color: #762cff;
+          }
+        }
+
+        &:target {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
